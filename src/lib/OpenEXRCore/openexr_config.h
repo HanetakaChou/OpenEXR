@@ -7,9 +7,8 @@
 #define OPENEXR_CONF_H
 #pragma once
 
-#include "OpenEXRConfig.h"
-#include <IlmThreadConfig.h>
-#include <ImathConfig.h>
+#include "../OpenEXR/OpenEXRConfig.h"
+#include "../IlmThread/IlmThreadConfig.h"
 
 /// \addtogroup ExportMacros
 /// @{
