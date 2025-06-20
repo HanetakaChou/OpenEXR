@@ -12,22 +12,24 @@
 
 #include "internal_structs.h"
 
-/* only recently has imath supported half in C (C++ only before),
- * allow an older version to still work, and if that is available, we
- * will favor the implementation there as it will be the latest
- * up-to-date optimizations */
-#if (IMATH_VERSION_MAJOR > 3) ||                                               \
-    (IMATH_VERSION_MAJOR == 3 && IMATH_VERSION_MINOR >= 1)
-#    define IMATH_HALF_SAFE_FOR_C
-/* avoid the library dependency */
-#    define IMATH_HALF_NO_LOOKUP_TABLE
-#    include <half.h>
+#if defined(__GNUC__)
+#if defined(__x86_64__) || defined(__i386__)
+#include <immintrin.h>
+#elif defined(__aarch64__) || defined(__arm__)
+#include <arm_acle.h>
+#else
+#error Unknown Architecture
 #endif
-
-#ifdef _WIN32
-#    include <intrin.h>
-#elif defined(__x86_64__)
-#    include <x86intrin.h>
+#elif defined(_MSC_VER)
+#if defined(_M_X64) || defined(_M_IX86)
+#include <immintrin.h>
+#elif defined(_M_ARM64) || defined(_M_ARM)
+#include <intrin.h>
+#else
+#error Unknown Architecture
+#endif
+#else
+#error Unknown Compiler
 #endif
 
 #include <math.h>
@@ -110,54 +112,32 @@ exr_result_t internal_decode_alloc_buffer (
 /**************************************/
 
 static inline float
-half_to_float (uint16_t hv)
+half_to_float(uint16_t hv)
 {
-#ifdef IMATH_HALF_SAFE_FOR_C
-    return imath_half_to_float (hv);
+#if defined(__GNUC__)
+#if defined(__x86_64__) || defined(__i386__)
+    return _cvtsh_ss(hv);
+#elif defined(__aarch64__) || defined(__arm__)
+    return vgetq_lane_f32(vcvt_f32_f16(vreinterpret_f16_u16(vdup_n_u16(hv))), 0);
 #else
-    /* replicate the code here from imath 3.1 since we are on an older
-     * version which doesn't have a half that is safe for C code. Same
-     * author, so free to do so. */
-#    if defined(__GNUC__) || defined(__clang__) || defined(__INTEL_COMPILER)
-#        define OUR_LIKELY(x) (__builtin_expect ((x), 1))
-#        define OUR_UNLIKELY(x) (__builtin_expect ((x), 0))
-#    else
-#        define OUR_LIKELY(x) (x)
-#        define OUR_UNLIKELY(x) (x)
-#    endif
-    union
-    {
-        uint32_t i;
-        float    f;
-    } v;
-    uint32_t hexpmant = ((uint32_t) (hv) << 17) >> 4;
-    v.i               = ((uint32_t) (hv >> 15)) << 31;
-    if (OUR_LIKELY ((hexpmant >= 0x00800000)))
-    {
-        v.i |= hexpmant;
-        if (OUR_LIKELY ((hexpmant < 0x0f800000)))
-            v.i += 0x38000000;
-        else
-            v.i |= 0x7f800000;
-    }
-    else if (hexpmant != 0)
-    {
-        uint32_t lc;
-#    if defined(_MSC_VER) && (_M_IX86 || _M_X64)
-        lc = __lzcnt (hexpmant);
-#    elif defined(__GNUC__) || defined(__clang__)
-        lc = (uint32_t) __builtin_clz (hexpmant);
-#    else
-        lc = 0;
-        while (0 == ((hexpmant << lc) & 0x80000000))
-            ++lc;
-#    endif
-        lc -= 8;
-        v.i |= 0x38800000;
-        v.i |= (hexpmant << lc);
-        v.i -= (lc << 23);
-    }
-    return v.f;
+#error Unknown Architecture
+#endif
+#elif defined(_MSC_VER)
+#if defined(_M_X64) || defined(_M_IX86)
+#if defined(__clang__)
+    // CLANG-CL
+    return _cvtsh_ss(hv);
+#else
+    // MSVC
+    return _mm_cvtss_f32(_mm_cvtph_ps(_mm_set1_epi16(hv)));
+#endif
+#elif defined(_M_ARM64) || defined(_M_ARM)
+    return vgetq_lane_f32(vcvt_f32_f16(vreinterpret_f16_u16(vdup_n_u16(hv))), 0);
+#else
+#error Unknown Architecture
+#endif
+#else
+#error Unknown Compiler
 #endif
 }
 
@@ -174,51 +154,32 @@ half_to_float_int (uint16_t hv)
 }
 
 static inline uint16_t
-float_to_half (float fv)
+float_to_half(float fv)
 {
-#ifdef IMATH_HALF_SAFE_FOR_C
-    return imath_float_to_half (fv);
+#if defined(__GNUC__)
+#if defined(__x86_64__) || defined(__i386__)
+    return _cvtss_sh(fv, (_MM_FROUND_TO_NEAREST_INT | _MM_FROUND_NO_EXC));
+#elif defined(__aarch64__) || defined(__arm__)
+    return vget_lane_u16(vcvt_f16_f32(vdupq_n_f32(fv)), 0);
 #else
-    union
-    {
-        uint32_t i;
-        float    f;
-    } v;
-    uint16_t ret;
-    uint32_t e, m, ui, r, shift;
-
-    v.f = fv;
-    ui  = (v.i & ~0x80000000);
-    ret = ((v.i >> 16) & 0x8000);
-
-    if (ui >= 0x38800000)
-    {
-        if (OUR_UNLIKELY (ui >= 0x7f800000))
-        {
-            ret |= 0x7c00;
-            if (ui == 0x7f800000) return ret;
-            m = (ui & 0x7fffff) >> 13;
-            return (uint16_t) (ret | m | (m == 0));
-        }
-
-        if (OUR_UNLIKELY (ui > 0x477fefff)) return ret | 0x7c00;
-
-        ui -= 0x38000000;
-        ui = ((ui + 0x00000fff + ((ui >> 13) & 1)) >> 13);
-        return (uint16_t) (ret | ui);
-    }
-
-    // zero or flush to 0
-    if (ui < 0x33000001) return ret;
-
-    // produce a denormalized half
-    e     = (ui >> 23);
-    shift = 0x7e - e;
-    m     = 0x800000 | (ui & 0x7fffff);
-    r     = m << (32 - shift);
-    ret |= (m >> shift);
-    if (r > 0x80000000 || (r == 0x80000000 && (ret & 0x1) != 0)) ++ret;
-    return ret;
+#error Unknown Architecture
+#endif
+#elif defined(_MSC_VER)
+#if defined(_M_X64) || defined(_M_IX86)
+#if defined(__clang__)
+    // CLANG-CL
+    return _cvtss_sh(fv, (_MM_FROUND_TO_NEAREST_INT | _MM_FROUND_NO_EXC));
+#else
+    // MSVC
+    return _mm_extract_epi16(_mm_cvtps_ph(_mm_set_ss(fv), (_MM_FROUND_TO_NEAREST_INT | _MM_FROUND_NO_EXC)), 0);
+#endif
+#elif defined(_M_ARM64) || defined(_M_ARM)
+    return vget_lane_u16(vcvt_f16_f32(vdupq_n_f32(fv)), 0);
+#else
+#error Unknown Architecture
+#endif
+#else
+#error Unknown Compiler
 #endif
 }
 

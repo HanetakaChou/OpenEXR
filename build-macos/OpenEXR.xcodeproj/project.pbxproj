@@ -1,0 +1,518 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		849B8F742F12CCEE00716C9D /* libdeflate.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 849B8F732F12CCEE00716C9D /* libdeflate.a */; };
+		84B2C2CC2F12B9AC00D8D32E /* internal_b44_table.c in Sources */ = {isa = PBXBuildFile; fileRef = DBBBF53FF4AD63208EFA14A8 /* internal_b44_table.c */; };
+		84B2C2CD2F12B9AC00D8D32E /* decoding.c in Sources */ = {isa = PBXBuildFile; fileRef = C948AA38F8248EC5567BF148 /* decoding.c */; };
+		84B2C2CE2F12B9AC00D8D32E /* internal_rle.c in Sources */ = {isa = PBXBuildFile; fileRef = 2259B3FAEB7F4D04B806DC0C /* internal_rle.c */; };
+		84B2C2CF2F12B9AC00D8D32E /* compression.c in Sources */ = {isa = PBXBuildFile; fileRef = D364BC57DA6628DDBE7ED421 /* compression.c */; };
+		84B2C2D02F12B9AC00D8D32E /* context.c in Sources */ = {isa = PBXBuildFile; fileRef = 74539D818ECCA026F34BB980 /* context.c */; };
+		84B2C2D12F12B9AC00D8D32E /* coding.c in Sources */ = {isa = PBXBuildFile; fileRef = D3341BD4576A186E18C146A9 /* coding.c */; };
+		84B2C2D22F12B9AC00D8D32E /* pack.c in Sources */ = {isa = PBXBuildFile; fileRef = 837B29E09323D365F8ACBF0E /* pack.c */; };
+		84B2C2D32F12B9AC00D8D32E /* string.c in Sources */ = {isa = PBXBuildFile; fileRef = 8A0632381B6B396AC43DE7AC /* string.c */; };
+		84B2C2D42F12B9AC00D8D32E /* part_attr.c in Sources */ = {isa = PBXBuildFile; fileRef = BD12AD95632625B832434156 /* part_attr.c */; };
+		84B2C2D52F12B9AC00D8D32E /* internal_piz.c in Sources */ = {isa = PBXBuildFile; fileRef = 7CB6B3A7BFE3B6F74A249774 /* internal_piz.c */; };
+		84B2C2D62F12B9AC00D8D32E /* string_vector.c in Sources */ = {isa = PBXBuildFile; fileRef = C81F9596D9C51B0096A3A3C8 /* string_vector.c */; };
+		84B2C2D72F12B9AC00D8D32E /* internal_structs.c in Sources */ = {isa = PBXBuildFile; fileRef = 3EB8610CF14540A3D15E4F4A /* internal_structs.c */; };
+		84B2C2D82F12B9AC00D8D32E /* preview.c in Sources */ = {isa = PBXBuildFile; fileRef = 76DB67D4D508F70A14D1E85C /* preview.c */; };
+		84B2C2D92F12B9AC00D8D32E /* internal_zip.c in Sources */ = {isa = PBXBuildFile; fileRef = 9677E9E1B883551DB3CDFE5B /* internal_zip.c */; };
+		84B2C2DA2F12B9AC00D8D32E /* write_header.c in Sources */ = {isa = PBXBuildFile; fileRef = 6E48F6E0805DBBFA6E59D2A0 /* write_header.c */; };
+		84B2C2DB2F12B9AC00D8D32E /* base.c in Sources */ = {isa = PBXBuildFile; fileRef = 4111085F8831F33F46576F46 /* base.c */; };
+		84B2C2DC2F12B9AC00D8D32E /* parse_header.c in Sources */ = {isa = PBXBuildFile; fileRef = D17B0FE804078C1E849A07C4 /* parse_header.c */; };
+		84B2C2DD2F12B9AC00D8D32E /* memory.c in Sources */ = {isa = PBXBuildFile; fileRef = 9310B58BFECD88F3C78E2D72 /* memory.c */; };
+		84B2C2DE2F12B9AC00D8D32E /* attributes.c in Sources */ = {isa = PBXBuildFile; fileRef = 77AEF23C76F5E94C897D2BCA /* attributes.c */; };
+		84B2C2DF2F12B9AC00D8D32E /* debug.c in Sources */ = {isa = PBXBuildFile; fileRef = 9AC6395892F8F8625588278A /* debug.c */; };
+		84B2C2E02F12B9AC00D8D32E /* channel_list.c in Sources */ = {isa = PBXBuildFile; fileRef = E88C5EAAE2D647C15B1E0365 /* channel_list.c */; };
+		84B2C2E12F12B9AC00D8D32E /* internal_dwa.c in Sources */ = {isa = PBXBuildFile; fileRef = 16180D218D7F26918B807935 /* internal_dwa.c */; };
+		84B2C2E22F12B9AC00D8D32E /* unpack.c in Sources */ = {isa = PBXBuildFile; fileRef = F9E1328F5A2F6504B34D95A5 /* unpack.c */; };
+		84B2C2E32F12B9AC00D8D32E /* internal_pxr24.c in Sources */ = {isa = PBXBuildFile; fileRef = 9D1701E99F25587B1A460F16 /* internal_pxr24.c */; };
+		84B2C2E42F12B9AC00D8D32E /* validation.c in Sources */ = {isa = PBXBuildFile; fileRef = 9D1EC9E246BE8F232109E5D9 /* validation.c */; };
+		84B2C2E52F12B9AC00D8D32E /* internal_huf.c in Sources */ = {isa = PBXBuildFile; fileRef = 952971B8B4C7E729D520347B /* internal_huf.c */; };
+		84B2C2E62F12B9AC00D8D32E /* float_vector.c in Sources */ = {isa = PBXBuildFile; fileRef = 7CB284CF878E193294AE4664 /* float_vector.c */; };
+		84B2C2E72F12B9AC00D8D32E /* std_attr.c in Sources */ = {isa = PBXBuildFile; fileRef = AEBD54858EEC67D931C49247 /* std_attr.c */; };
+		84B2C2E82F12B9AC00D8D32E /* part.c in Sources */ = {isa = PBXBuildFile; fileRef = 19C1CE5B76234500F36AA480 /* part.c */; };
+		84B2C2E92F12B9AC00D8D32E /* encoding.c in Sources */ = {isa = PBXBuildFile; fileRef = 3BFAEE5BA5F30C72E47DFA9E /* encoding.c */; };
+		84B2C2EA2F12B9AC00D8D32E /* internal_b44.c in Sources */ = {isa = PBXBuildFile; fileRef = B226B7858677982C5F3BDB48 /* internal_b44.c */; };
+		84B2C2EB2F12B9AC00D8D32E /* chunk.c in Sources */ = {isa = PBXBuildFile; fileRef = 25062C2EC6709DFCA09F97B8 /* chunk.c */; };
+		84B2C2EC2F12B9AC00D8D32E /* opaque.c in Sources */ = {isa = PBXBuildFile; fileRef = 78834C2637D9FDF27942293C /* opaque.c */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		16180D218D7F26918B807935 /* internal_dwa.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = internal_dwa.c; path = ../src/lib/OpenEXRCore/internal_dwa.c; sourceTree = SOURCE_ROOT; };
+		19C1CE5B76234500F36AA480 /* part.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = part.c; path = ../src/lib/OpenEXRCore/part.c; sourceTree = SOURCE_ROOT; };
+		2259B3FAEB7F4D04B806DC0C /* internal_rle.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = internal_rle.c; path = ../src/lib/OpenEXRCore/internal_rle.c; sourceTree = SOURCE_ROOT; };
+		25062C2EC6709DFCA09F97B8 /* chunk.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = chunk.c; path = ../src/lib/OpenEXRCore/chunk.c; sourceTree = SOURCE_ROOT; };
+		3BFAEE5BA5F30C72E47DFA9E /* encoding.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = encoding.c; path = ../src/lib/OpenEXRCore/encoding.c; sourceTree = SOURCE_ROOT; };
+		3EB8610CF14540A3D15E4F4A /* internal_structs.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = internal_structs.c; path = ../src/lib/OpenEXRCore/internal_structs.c; sourceTree = SOURCE_ROOT; };
+		4111085F8831F33F46576F46 /* base.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = base.c; path = ../src/lib/OpenEXRCore/base.c; sourceTree = SOURCE_ROOT; };
+		6E48F6E0805DBBFA6E59D2A0 /* write_header.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = write_header.c; path = ../src/lib/OpenEXRCore/write_header.c; sourceTree = SOURCE_ROOT; };
+		74539D818ECCA026F34BB980 /* context.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = context.c; path = ../src/lib/OpenEXRCore/context.c; sourceTree = SOURCE_ROOT; };
+		76DB67D4D508F70A14D1E85C /* preview.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = preview.c; path = ../src/lib/OpenEXRCore/preview.c; sourceTree = SOURCE_ROOT; };
+		77AEF23C76F5E94C897D2BCA /* attributes.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = attributes.c; path = ../src/lib/OpenEXRCore/attributes.c; sourceTree = SOURCE_ROOT; };
+		78834C2637D9FDF27942293C /* opaque.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = opaque.c; path = ../src/lib/OpenEXRCore/opaque.c; sourceTree = SOURCE_ROOT; };
+		7CB284CF878E193294AE4664 /* float_vector.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = float_vector.c; path = ../src/lib/OpenEXRCore/float_vector.c; sourceTree = SOURCE_ROOT; };
+		7CB6B3A7BFE3B6F74A249774 /* internal_piz.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = internal_piz.c; path = ../src/lib/OpenEXRCore/internal_piz.c; sourceTree = SOURCE_ROOT; };
+		837B29E09323D365F8ACBF0E /* pack.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = pack.c; path = ../src/lib/OpenEXRCore/pack.c; sourceTree = SOURCE_ROOT; };
+		849B8F732F12CCEE00716C9D /* libdeflate.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libdeflate.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		84B2C2A32F12B3B200D8D32E /* OpenEXRCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OpenEXRCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A0632381B6B396AC43DE7AC /* string.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = string.c; path = ../src/lib/OpenEXRCore/string.c; sourceTree = SOURCE_ROOT; };
+		9310B58BFECD88F3C78E2D72 /* memory.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = memory.c; path = ../src/lib/OpenEXRCore/memory.c; sourceTree = SOURCE_ROOT; };
+		952971B8B4C7E729D520347B /* internal_huf.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = internal_huf.c; path = ../src/lib/OpenEXRCore/internal_huf.c; sourceTree = SOURCE_ROOT; };
+		9677E9E1B883551DB3CDFE5B /* internal_zip.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = internal_zip.c; path = ../src/lib/OpenEXRCore/internal_zip.c; sourceTree = SOURCE_ROOT; };
+		9AC6395892F8F8625588278A /* debug.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = debug.c; path = ../src/lib/OpenEXRCore/debug.c; sourceTree = SOURCE_ROOT; };
+		9D1701E99F25587B1A460F16 /* internal_pxr24.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = internal_pxr24.c; path = ../src/lib/OpenEXRCore/internal_pxr24.c; sourceTree = SOURCE_ROOT; };
+		9D1EC9E246BE8F232109E5D9 /* validation.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = validation.c; path = ../src/lib/OpenEXRCore/validation.c; sourceTree = SOURCE_ROOT; };
+		AEBD54858EEC67D931C49247 /* std_attr.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = std_attr.c; path = ../src/lib/OpenEXRCore/std_attr.c; sourceTree = SOURCE_ROOT; };
+		B226B7858677982C5F3BDB48 /* internal_b44.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = internal_b44.c; path = ../src/lib/OpenEXRCore/internal_b44.c; sourceTree = SOURCE_ROOT; };
+		BD12AD95632625B832434156 /* part_attr.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = part_attr.c; path = ../src/lib/OpenEXRCore/part_attr.c; sourceTree = SOURCE_ROOT; };
+		C81F9596D9C51B0096A3A3C8 /* string_vector.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = string_vector.c; path = ../src/lib/OpenEXRCore/string_vector.c; sourceTree = SOURCE_ROOT; };
+		C948AA38F8248EC5567BF148 /* decoding.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = decoding.c; path = ../src/lib/OpenEXRCore/decoding.c; sourceTree = SOURCE_ROOT; };
+		D17B0FE804078C1E849A07C4 /* parse_header.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = parse_header.c; path = ../src/lib/OpenEXRCore/parse_header.c; sourceTree = SOURCE_ROOT; };
+		D3341BD4576A186E18C146A9 /* coding.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = coding.c; path = ../src/lib/OpenEXRCore/coding.c; sourceTree = SOURCE_ROOT; };
+		D364BC57DA6628DDBE7ED421 /* compression.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = compression.c; path = ../src/lib/OpenEXRCore/compression.c; sourceTree = SOURCE_ROOT; };
+		DBBBF53FF4AD63208EFA14A8 /* internal_b44_table.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = internal_b44_table.c; path = ../src/lib/OpenEXRCore/internal_b44_table.c; sourceTree = SOURCE_ROOT; };
+		E88C5EAAE2D647C15B1E0365 /* channel_list.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = channel_list.c; path = ../src/lib/OpenEXRCore/channel_list.c; sourceTree = SOURCE_ROOT; };
+		F9E1328F5A2F6504B34D95A5 /* unpack.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = unpack.c; path = ../src/lib/OpenEXRCore/unpack.c; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		84B2C2A02F12B3B200D8D32E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				849B8F742F12CCEE00716C9D /* libdeflate.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		849B8F4E2F12BE6800716C9D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				849B8F732F12CCEE00716C9D /* libdeflate.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		84C68ED72F12B242004C085E = {
+			isa = PBXGroup;
+			children = (
+				77AEF23C76F5E94C897D2BCA /* attributes.c */,
+				4111085F8831F33F46576F46 /* base.c */,
+				E88C5EAAE2D647C15B1E0365 /* channel_list.c */,
+				25062C2EC6709DFCA09F97B8 /* chunk.c */,
+				D3341BD4576A186E18C146A9 /* coding.c */,
+				D364BC57DA6628DDBE7ED421 /* compression.c */,
+				74539D818ECCA026F34BB980 /* context.c */,
+				9AC6395892F8F8625588278A /* debug.c */,
+				C948AA38F8248EC5567BF148 /* decoding.c */,
+				3BFAEE5BA5F30C72E47DFA9E /* encoding.c */,
+				7CB284CF878E193294AE4664 /* float_vector.c */,
+				B226B7858677982C5F3BDB48 /* internal_b44.c */,
+				DBBBF53FF4AD63208EFA14A8 /* internal_b44_table.c */,
+				16180D218D7F26918B807935 /* internal_dwa.c */,
+				952971B8B4C7E729D520347B /* internal_huf.c */,
+				7CB6B3A7BFE3B6F74A249774 /* internal_piz.c */,
+				9D1701E99F25587B1A460F16 /* internal_pxr24.c */,
+				2259B3FAEB7F4D04B806DC0C /* internal_rle.c */,
+				3EB8610CF14540A3D15E4F4A /* internal_structs.c */,
+				9677E9E1B883551DB3CDFE5B /* internal_zip.c */,
+				9310B58BFECD88F3C78E2D72 /* memory.c */,
+				78834C2637D9FDF27942293C /* opaque.c */,
+				837B29E09323D365F8ACBF0E /* pack.c */,
+				D17B0FE804078C1E849A07C4 /* parse_header.c */,
+				19C1CE5B76234500F36AA480 /* part.c */,
+				BD12AD95632625B832434156 /* part_attr.c */,
+				76DB67D4D508F70A14D1E85C /* preview.c */,
+				AEBD54858EEC67D931C49247 /* std_attr.c */,
+				8A0632381B6B396AC43DE7AC /* string.c */,
+				C81F9596D9C51B0096A3A3C8 /* string_vector.c */,
+				F9E1328F5A2F6504B34D95A5 /* unpack.c */,
+				9D1EC9E246BE8F232109E5D9 /* validation.c */,
+				6E48F6E0805DBBFA6E59D2A0 /* write_header.c */,
+				849B8F4E2F12BE6800716C9D /* Frameworks */,
+				84C68EE22F12B242004C085E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		84C68EE22F12B242004C085E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				84B2C2A32F12B3B200D8D32E /* OpenEXRCore.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		84B2C29E2F12B3B200D8D32E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		84B2C2A22F12B3B200D8D32E /* OpenEXRCore */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84B2C2AA2F12B3B200D8D32E /* Build configuration list for PBXNativeTarget "OpenEXRCore" */;
+			buildPhases = (
+				84B2C29E2F12B3B200D8D32E /* Headers */,
+				84B2C29F2F12B3B200D8D32E /* Sources */,
+				84B2C2A02F12B3B200D8D32E /* Frameworks */,
+				84B2C2A12F12B3B200D8D32E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OpenEXRCore;
+			productName = OpenEXR;
+			productReference = 84B2C2A32F12B3B200D8D32E /* OpenEXRCore.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		84C68ED82F12B242004C085E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 2620;
+				TargetAttributes = {
+					84B2C2A22F12B3B200D8D32E = {
+						CreatedOnToolsVersion = 26.2;
+					};
+				};
+			};
+			buildConfigurationList = 84C68EDB2F12B242004C085E /* Build configuration list for PBXProject "OpenEXR" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 84C68ED72F12B242004C085E;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 84C68EE22F12B242004C085E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				84B2C2A22F12B3B200D8D32E /* OpenEXRCore */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		84B2C2A12F12B3B200D8D32E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		84B2C29F2F12B3B200D8D32E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84B2C2CC2F12B9AC00D8D32E /* internal_b44_table.c in Sources */,
+				84B2C2CD2F12B9AC00D8D32E /* decoding.c in Sources */,
+				84B2C2CE2F12B9AC00D8D32E /* internal_rle.c in Sources */,
+				84B2C2CF2F12B9AC00D8D32E /* compression.c in Sources */,
+				84B2C2D02F12B9AC00D8D32E /* context.c in Sources */,
+				84B2C2D12F12B9AC00D8D32E /* coding.c in Sources */,
+				84B2C2D22F12B9AC00D8D32E /* pack.c in Sources */,
+				84B2C2D32F12B9AC00D8D32E /* string.c in Sources */,
+				84B2C2D42F12B9AC00D8D32E /* part_attr.c in Sources */,
+				84B2C2D52F12B9AC00D8D32E /* internal_piz.c in Sources */,
+				84B2C2D62F12B9AC00D8D32E /* string_vector.c in Sources */,
+				84B2C2D72F12B9AC00D8D32E /* internal_structs.c in Sources */,
+				84B2C2D82F12B9AC00D8D32E /* preview.c in Sources */,
+				84B2C2D92F12B9AC00D8D32E /* internal_zip.c in Sources */,
+				84B2C2DA2F12B9AC00D8D32E /* write_header.c in Sources */,
+				84B2C2DB2F12B9AC00D8D32E /* base.c in Sources */,
+				84B2C2DC2F12B9AC00D8D32E /* parse_header.c in Sources */,
+				84B2C2DD2F12B9AC00D8D32E /* memory.c in Sources */,
+				84B2C2DE2F12B9AC00D8D32E /* attributes.c in Sources */,
+				84B2C2DF2F12B9AC00D8D32E /* debug.c in Sources */,
+				84B2C2E02F12B9AC00D8D32E /* channel_list.c in Sources */,
+				84B2C2E12F12B9AC00D8D32E /* internal_dwa.c in Sources */,
+				84B2C2E22F12B9AC00D8D32E /* unpack.c in Sources */,
+				84B2C2E32F12B9AC00D8D32E /* internal_pxr24.c in Sources */,
+				84B2C2E42F12B9AC00D8D32E /* validation.c in Sources */,
+				84B2C2E52F12B9AC00D8D32E /* internal_huf.c in Sources */,
+				84B2C2E62F12B9AC00D8D32E /* float_vector.c in Sources */,
+				84B2C2E72F12B9AC00D8D32E /* std_attr.c in Sources */,
+				84B2C2E82F12B9AC00D8D32E /* part.c in Sources */,
+				84B2C2E92F12B9AC00D8D32E /* encoding.c in Sources */,
+				84B2C2EA2F12B9AC00D8D32E /* internal_b44.c in Sources */,
+				84B2C2EB2F12B9AC00D8D32E /* chunk.c in Sources */,
+				84B2C2EC2F12B9AC00D8D32E /* opaque.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		84B2C2A72F12B3B200D8D32E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = x86_64;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
+				CLANG_ENABLE_MODULES = NO;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
+				CLANG_X86_VECTOR_INSTRUCTIONS = avx2;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEFINES_MODULE = NO;
+				DEPLOYMENT_POSTPROCESSING = NO;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				EXPORTED_SYMBOLS_FILE = "$(PROJECT_DIR)/OpenEXRCore.exp";
+				GCC_C_LANGUAGE_STANDARD = c17;
+				GCC_ENABLE_CPP_EXCEPTIONS = NO;
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				"OTHER_CFLAGS[arch=i386]" = (
+					"$(inherited)",
+					"-mf16c",
+					"-mfma",
+				);
+				"OTHER_CFLAGS[arch=x86_64]" = (
+					"$(inherited)",
+					"-mf16c",
+					"-mfma",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = IO.GitHub.BriochePuppet.OpenEXR;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+			};
+			name = Debug;
+		};
+		84B2C2A82F12B3B200D8D32E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = x86_64;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
+				CLANG_ENABLE_MODULES = NO;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
+				CLANG_X86_VECTOR_INSTRUCTIONS = avx2;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				DEFINES_MODULE = NO;
+				DEPLOYMENT_POSTPROCESSING = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				EXPORTED_SYMBOLS_FILE = "$(PROJECT_DIR)/OpenEXRCore.exp";
+				GCC_C_LANGUAGE_STANDARD = c17;
+				GCC_ENABLE_CPP_EXCEPTIONS = NO;
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				"OTHER_CFLAGS[arch=i386]" = (
+					"$(inherited)",
+					"-mf16c",
+					"-mfma",
+				);
+				"OTHER_CFLAGS[arch=x86_64]" = (
+					"$(inherited)",
+					"-mf16c",
+					"-mfma",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = IO.GitHub.BriochePuppet.OpenEXR;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRIP_INSTALLED_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		84C68EEA2F12B242004C085E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = x86_64;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
+				CLANG_ENABLE_MODULES = NO;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = NO;
+				DEPLOYMENT_POSTPROCESSING = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = c17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_CPP_EXCEPTIONS = NO;
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				STRIP_INSTALLED_PRODUCT = NO;
+			};
+			name = Debug;
+		};
+		84C68EEB2F12B242004C085E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = x86_64;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
+				CLANG_ENABLE_MODULES = NO;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = NO;
+				DEPLOYMENT_POSTPROCESSING = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = c17;
+				GCC_ENABLE_CPP_EXCEPTIONS = NO;
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"NDEBUG=1",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				STRIP_INSTALLED_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		84B2C2AA2F12B3B200D8D32E /* Build configuration list for PBXNativeTarget "OpenEXRCore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84B2C2A72F12B3B200D8D32E /* Debug */,
+				84B2C2A82F12B3B200D8D32E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84C68EDB2F12B242004C085E /* Build configuration list for PBXProject "OpenEXR" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84C68EEA2F12B242004C085E /* Debug */,
+				84C68EEB2F12B242004C085E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 84C68ED82F12B242004C085E /* Project object */;
+}

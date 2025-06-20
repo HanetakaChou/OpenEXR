@@ -13,7 +13,7 @@
 
 /**************************************/
 
-#ifndef __F16C__
+#if ((!defined(__F16C__)) && (!defined(__AVX2__)))
 static inline void
 half_to_float4 (float* out, const uint16_t* src)
 {
@@ -31,16 +31,10 @@ half_to_float8 (float* out, const uint16_t* src)
 }
 #endif
 
-#if (defined(__x86_64__) || defined(_M_X64)) && defined(__AVX__) &&            \
-    (defined(__F16C__) || defined(__GNUC__) || defined(__clang__))
+#if (defined(__x86_64__) || defined(__i386__) || defined(_M_X64) || defined(_M_IX86)) && defined(__AVX__) && (defined(__F16C__) || defined(__AVX2__))
 
-#    if defined(__F16C__)
 static inline void
 half_to_float_buffer (float* out, const uint16_t* in, int w)
-#    elif defined(__GNUC__) || defined(__clang__)
-__attribute__ ((target ("f16c"))) static void
-half_to_float_buffer_f16c (float* out, const uint16_t* in, int w)
-#    endif
 {
     while (w >= 8)
     {
@@ -50,8 +44,7 @@ half_to_float_buffer_f16c (float* out, const uint16_t* in, int w)
         in += 8;
         w -= 8;
     }
-    // gcc < 9 does not have loadu_si64
-#    if defined(__clang__) || (__GNUC__ >= 9)
+
     switch (w)
     {
         case 7:
@@ -81,16 +74,9 @@ half_to_float_buffer_f16c (float* out, const uint16_t* in, int w)
             break;
         case 1: out[0] = half_to_float (in[0]); break;
     }
-#    else
-    while (w > 0)
-    {
-        *out++ = half_to_float (*in++);
-        --w;
-    }
-#    endif
 }
 
-#    ifndef __F16C__
+#    if ((!defined(__F16C__)) && (!defined(__AVX2__)))
 static void
 half_to_float_buffer_impl (float* out, const uint16_t* in, int w)
 {
